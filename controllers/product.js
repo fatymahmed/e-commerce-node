@@ -16,7 +16,7 @@ exports.productById = (req, res, next, id) => {
 };
 
 exports.read = (req, res) => {
-  //   req.product.photo = undefined;
+  req.product.photo = undefined;
   return res.json(req.product);
 };
 exports.create = (req, res) => {
@@ -171,4 +171,15 @@ exports.listRelated = (req, res) => {
       }
       res.json(products);
     });
+};
+
+exports.listCategories = (req, res) => {
+  Product.distinct("category", {}, (err, categories) => {
+    if (err) {
+      return res.status(400).json({
+        error: "Products not found",
+      });
+    }
+    res.json(categories);
+  });
 };
