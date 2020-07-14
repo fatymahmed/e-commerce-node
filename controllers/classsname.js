@@ -2,7 +2,7 @@ const Classname = require("../models/classname")
 const { errorHandler } = require("../helpers/dbHandlerError")
 const classname = require("../models/classname")
 
-exports.schoolById = (req, res, next, id) => {
+exports.classnameById = (req, res, next, id) => {
   classname.findById(id).exec((err, classname) => {
     if (err || !classname) {
       return res.status(400).json({
