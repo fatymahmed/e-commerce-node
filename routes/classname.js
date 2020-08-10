@@ -8,7 +8,7 @@ const {
   remove,
   list,
   read,
-} = require("../controllers/classsname")
+} = require("../controllers/classname")
 
 const { requireSignin, isAdmin, isAuth } = require("../controllers/auth")
 const { userById } = require("../controllers/user")
@@ -29,7 +29,7 @@ router.delete(
   isAdmin,
   remove
 )
-router.get("/classname", list)
+router.get("/classnames", list)
 
 router.param("classnameId", classnameById)
 router.param("userId", userById)

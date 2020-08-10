@@ -1,9 +1,8 @@
 const Classname = require("../models/classname")
 const { errorHandler } = require("../helpers/dbHandlerError")
-const classname = require("../models/classname")
 
 exports.classnameById = (req, res, next, id) => {
-  classname.findById(id).exec((err, classname) => {
+  Classname.findById(id).exec((err, classname) => {
     if (err || !classname) {
       return res.status(400).json({
         error: "classname does not exist",
@@ -19,7 +18,7 @@ exports.read = (req, res) => {
 }
 
 exports.create = (req, res) => {
-  const classname = new classname(req.body)
+  const classname = new Classname(req.body)
   classname.save((err, data) => {
     if (err) {
       return res.status(400).json({
@@ -59,7 +58,7 @@ exports.remove = (req, res) => {
 }
 
 exports.list = (req, res) => {
-  classname.find().exec((err, data) => {
+  Classname.find().exec((err, data) => {
     if (err) {
       return res.status(400).json({
         error: errorHandler(err),

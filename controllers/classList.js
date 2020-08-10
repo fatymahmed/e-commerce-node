@@ -1,5 +1,5 @@
 const { errorHandler } = require("../helpers/dbHandlerError")
-const { ClassList, ListProduct } = require("../models/classList ")
+const { ClassList, ListProduct } = require("../models/classList")
 
 exports.classListById = (req, res, next, id) => {
   ClassList.findById(id)
